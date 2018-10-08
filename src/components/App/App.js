@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 
 import { search } from "../../api";
 import Header from "../Header";

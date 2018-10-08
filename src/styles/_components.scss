@@ -7,8 +7,8 @@
   font-size: var(--fs-header);
 
   transition: transform 0.2s;
-}
 
-.icon-button:active {
-  transform: scale(1.2);
+  &:active {
+    transform: scale(1.2);
+  }
 }
