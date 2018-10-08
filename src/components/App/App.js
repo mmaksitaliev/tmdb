@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 
 import { search } from "../../api";
+import Header from "../Header";
+import Sidebar from "../Sidebar";
 
 class App extends Component {
   input = React.createRef();
@@ -15,10 +17,11 @@ class App extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" ref={this.input} />
-        <button type="submit">Search</button>
-      </form>
+      <div className="app">
+        <Header />
+        <Sidebar />
+
+      </div>
     );
   }
 }

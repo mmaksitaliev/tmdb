@@ -1,0 +1,14 @@
+.icon-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  font-size: var(--fs-header);
+
+  transition: transform 0.2s;
+}
+
+.icon-button:active {
+  transform: scale(1.2);
+}
