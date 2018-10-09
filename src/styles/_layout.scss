@@ -1,8 +1,14 @@
 .app {
   display: grid;
   grid-template-rows: var(--h-header) min-content;
-  grid-template-columns: [sidebar-start] 30rem [sidebar-end content-start] 1fr [content-end];
-  grid-row-gap: 2rem;
+  grid-template-columns:
+    [sidebar-start] minmax(min-content, 30rem) [sidebar-end full-start] minmax(3rem, 1fr)
+    [content-start] minmax(min-content, 100rem) [content-end] minmax(3rem, 1fr)
+    [full-end];
+  grid-gap: 2rem;
+
+  @media (max-width: 800px) {
+  }
 }
 
 .header {
@@ -12,7 +18,7 @@
   align-items: center;
   justify-content: space-between;
 
-  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.2rem 0.2rem rgba(235, 121, 121, 0.2);
   font-size: var(--fs-header);
   padding: 10px;
 }
@@ -20,10 +26,13 @@
 .content {
   grid-column: content-start / content-end;
   // background-color: aqua;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  justify-items: center;
+  grid-gap: 2rem;
 }
 
 .sidebar {
   grid-column: sidebar-start / sidebar-end;
   // background-color: darkslategray;
-
 }

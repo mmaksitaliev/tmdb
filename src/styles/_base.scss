@@ -8,7 +8,7 @@
 
   --midnight-express: #182130;
   --black-russian: #151a27;
-  --c-link-active: #4E30D6;
+  --c-link-active: #4e30d6;
 
   --h-header: 64px;
   --fs-header: 1.8rem;
@@ -24,6 +24,10 @@
 
 html {
   font-size: 62.5%;
+
+  @media (max-width: 800px) {
+    font-size: 56.25%;
+  }
 }
 
 body {

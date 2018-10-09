@@ -1,24 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default props => {
   return (
     <div className="sidebar">
       <ul className="sidebar__list">
         <li className="sidebar__list-item">
-          <Link to="/collection" className="sidebar__link">
+          <NavLink to="/collection" className="sidebar__link" activeClassName="active">
             My Collection
-          </Link>
+          </NavLink>
         </li>
         <li className="sidebar__list-item">
-          <Link to="/trending" className="sidebar__link">
+          <NavLink to="/trending" className="sidebar__link"  activeClassName="active">
             Trending Movies
-          </Link>
+          </NavLink>
         </li>
         <li className="sidebar__list-item">
-          <Link to="/search" className="sidebar__link">
-            History
-          </Link>
+          <NavLink to="/search" className="sidebar__link"  activeClassName="active">
+            Search
+          </NavLink>
         </li>
       </ul>
     </div>

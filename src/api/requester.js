@@ -21,9 +21,3 @@ export default function request(params) {
 
   return fetch(url, { method, headers, body }).then(res => res.json());
 }
-
-/* export default {
-  get: params => request(Object.assign({ method: "GET" }, params)),
-  post: params => request(Object.assign({ method: "POST" }, params))
-};
- */

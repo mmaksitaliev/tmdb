@@ -15,13 +15,15 @@ class App extends Component {
         <div className="app">
           <Header />
           <Sidebar />
-          <Switch>
-            <Route exact path="/" component={Content} />
-            <Route exact path="/collection" component={Collection} />
-            <Route exact path="/trending" component={Trending} />
-            <Route exact path="/search" component={Search} />
-            <Route render={() => <h1>Page Not Found</h1>} />
-          </Switch>
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={Content} />
+              <Route exact path="/collection" component={Collection} />
+              <Route exact path="/trending" component={Trending} />
+              <Route exact path="/search" component={Search} />
+              <Route render={() => <h1>Page Not Found</h1>} />
+            </Switch>
+          </div>
         </div>
       </Router>
     );
