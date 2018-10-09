@@ -1,5 +1,12 @@
+.app {
+  display: grid;
+  grid-template-rows: var(--h-header) min-content;
+  grid-template-columns: [sidebar-start] 30rem [sidebar-end content-start] 1fr [content-end];
+  grid-row-gap: 2rem;
+}
+
 .header {
-  height: var(--h-header);
+  grid-column: 1 / -1;
   background-color: var(--black-russian);
   display: flex;
   align-items: center;
@@ -8,4 +15,15 @@
   box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
   font-size: var(--fs-header);
   padding: 10px;
+}
+
+.content {
+  grid-column: content-start / content-end;
+  // background-color: aqua;
+}
+
+.sidebar {
+  grid-column: sidebar-start / sidebar-end;
+  // background-color: darkslategray;
+
 }

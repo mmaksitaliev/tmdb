@@ -45,3 +45,33 @@
     transform: scale(1.2);
   }
 }
+
+.sidebar {
+  // margin: 1rem 0;
+  font-size: var(--fs-primary);
+
+  &__list {
+    list-style: none;
+  }
+
+  &__list-item {
+  }
+
+  &__link,
+  &__link:visited {
+    display: block;
+    padding: 1rem;
+    padding-left: 2rem;
+    cursor: pointer;
+
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+    }
+
+    &.active {
+      background-color: var(--c-link-active);
+    }
+  }
+}
