@@ -84,3 +84,25 @@
   // border-radius: 3px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+
+.movie {
+  font-weight: 400;
+
+  &__details {
+    margin: 1.5rem 0;
+  }
+
+  &__title {
+    font-size: var(--fs-primary);
+    font-weight: inherit;
+    text-transform: uppercase;
+  }
+
+  &__year {
+    font-size: var(--fs-secondary);
+    font-weight: inherit;
+  }
+
+  &__image {
+  }
+}
