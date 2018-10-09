@@ -5,7 +5,7 @@ function getQueryString(params) {
     .join("&");
 }
 
-function request(params) {
+export default function request(params) {
   const method = params.method || "GET";
   const headers = params.headers || {
     Accept: "application/json",
@@ -19,10 +19,11 @@ function request(params) {
 
   let url = params.url + qs;
 
-  return fetch(url, { method, headers, body });
+  return fetch(url, { method, headers, body }).then(res => res.json());
 }
 
-export default {
+/* export default {
   get: params => request(Object.assign({ method: "GET" }, params)),
   post: params => request(Object.assign({ method: "POST" }, params))
 };
+ */

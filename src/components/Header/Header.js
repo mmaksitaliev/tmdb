@@ -2,13 +2,29 @@ import React, { Component } from "react";
 import Search from "./Search";
 import UserMenu from "./User";
 
-export default class Header extends Component {
+import { connect } from "react-redux";
+import { movie } from "../../store/actions";
+
+class Header extends Component {
   render() {
     return (
       <div className="header">
-        <Search />
+        <Search onSearchClick={this.props.onSearchClick} />
         <UserMenu />
       </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  movies: state.movies
+});
+
+const mapDispatchToProps = {
+  onSearchClick: e => movie.creators.search({ query: e.target.value || "Fight club" })
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
