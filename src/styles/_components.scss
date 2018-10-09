@@ -1,3 +1,35 @@
+.header {
+  &__search {
+    flex: 1;
+    display: flex;
+    margin: 0 2rem;
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    flex: 1;
+    margin: 0 2rem;
+
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 300;
+
+    transform: scale(0.99);
+    transition: transform 0.2s;
+
+    &:focus {
+      transform: scale(1);
+    }
+  }
+
+  &__icon {
+    font-size: 4rem;
+  }
+}
+
 .icon-button {
   border: none;
   background-color: transparent;
@@ -7,6 +39,7 @@
   font-size: var(--fs-header);
 
   transition: transform 0.2s;
+  padding: 10px;
 
   &:active {
     transform: scale(1.2);
