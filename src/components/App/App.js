@@ -8,13 +8,22 @@ import Collection from "../pages/Collection";
 import Trending from "../pages/Trending";
 import Search from "../pages/Search";
 
+const links = [
+  { to: "/trending", children: "Trending Movies" },
+  { to: "/upcoming", children: "Upcoming" },
+  { to: "/top", children: "Top Rated" },
+  { to: "/genres", children: "Genres" },
+  { to: "/collection", children: "My Collection" },
+  { to: "/search", children: "Search" }
+];
+
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="app">
           <Header />
-          <Sidebar />
+          <Sidebar links={links} />
           <div className="content">
             <Switch>
               <Route exact path="/" component={Content} />
