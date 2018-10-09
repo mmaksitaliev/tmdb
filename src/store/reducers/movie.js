@@ -17,15 +17,23 @@ const onRequest = (state = INITIAL_STATE, action) => {
 };
 
 const onResponse = (state = INITIAL_STATE, { payload, error }) => {
+  let movies = payload.results.map(m => ({
+    id: m.id,
+    title: m.title,
+    image: m.poster_path,
+    year: m.release_date
+  }));
+  if (payload.page > 1) movies = state.movies.concat(movies);
   return {
+    movies,
     loading: INITIAL_STATE.loading,
-    movies: payload
+    error: error
   };
 };
 
 const HANDLERS = {
-  [movie.types.SEARCH.REQUEST]: onRequest,
-  [movie.types.SEARCH.RESPONSE]: onResponse
+  [movie.types.TRENDING.REQUEST]: onRequest,
+  [movie.types.TRENDING.RESPONSE]: onResponse
 };
 
 export default createReducers(INITIAL_STATE, HANDLERS);

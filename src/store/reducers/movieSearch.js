@@ -22,6 +22,7 @@ const onSearchResponse = (state = INITIAL_STATE, { payload }) => {
   };
 };
 
+
 const HANDLERS = {
   [movie.types.SEARCH.REQUEST]: onSearchRequest,
   [movie.types.SEARCH.RESPONSE]: onSearchResponse

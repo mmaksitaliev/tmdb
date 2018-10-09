@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Collection extends Component {
+export default class Search extends Component {
   render() {
     return (
       <>

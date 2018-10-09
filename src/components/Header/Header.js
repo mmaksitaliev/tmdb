@@ -17,7 +17,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.movies
+  movies: state.search.movies
 });
 
 const mapDispatchToProps = {
