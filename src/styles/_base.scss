@@ -1,4 +1,11 @@
+// break-points
+$bp-large: 1200px;
+$bp-big: 1000px;
+$bp-medium: 800px;
+$bp-small: 600px;
+
 :root {
+  // colors
   --elephant: #2d3840;
   --oslo-grey: #465050;
   --twilight-blue: #f4f6f0;
@@ -10,7 +17,14 @@
   --black-russian: #151a27;
   --c-link-active: #4e30d6;
 
+  // heights
   --h-header: 64px;
+
+  // widths
+  --w-movie: 16rem;
+  // --w-max-movie: 18rem;
+
+  // font-sizes
   --fs-header: 1.8rem;
   --fs-primary: 1.4rem;
   --fs-secondary: 1.2rem;
@@ -24,10 +38,19 @@
 }
 
 html {
+  // applied by default
   font-size: 62.5%;
 
-  @media (max-width: 800px) {
+  @media (min-width: $bp-large) {
+    font-size: 75%;
+  }
+
+  @media (max-width: $bp-medium) {
     font-size: 56.25%;
+  }
+
+  @media (max-width: $bp-small) {
+    font-size: 37.5%;
   }
 }
 
@@ -37,6 +60,6 @@ body {
 }
 
 .app {
-  height: 100vh;
+  min-height: 100vh;
   background: var(--midnight-express);
 }

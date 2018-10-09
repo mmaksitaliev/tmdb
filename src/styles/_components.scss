@@ -52,16 +52,25 @@
 
   &__list {
     list-style: none;
+
+    @media (max-width: $bp-medium) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 
   &__list-item {
+    @media (max-width: $bp-medium) {
+      flex: 1;
+      text-align: center;
+    }
   }
 
   &__link,
   &__link:visited {
     display: block;
-    padding: 1rem;
-    padding-left: 2rem;
+    padding: 1rem 2rem;
     cursor: pointer;
 
     text-decoration: none;
@@ -78,8 +87,6 @@
 
 .card {
   background-color: cadetblue;
-  width: 16rem;
-  height: 20rem;
 
   // border-radius: 3px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
@@ -104,5 +111,7 @@
   }
 
   &__image {
+    max-width: var(--w-movie);
+    // height: 100%;
   }
 }
