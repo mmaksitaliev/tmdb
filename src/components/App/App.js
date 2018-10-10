@@ -8,11 +8,11 @@ import GenericMovieList from "../pages/GenericMovieList";
 import MovieDetails from "../pages/MovieDetails";
 
 const routes = [
-  { path: "/popular", component: GenericMovieList, exact: true, linkLabel: "Most Popular" },
-  { path: "/upcoming", component: GenericMovieList, exact: true, linkLabel: "Upcoming" },
-  { path: "/top", component: GenericMovieList, exact: true, linkLabel: "Top Rated" },
-  { path: "/genres", component: Search, exact: true, linkLabel: "Genres" },
-  { path: "/discover", component: Search, exact: true, linkLabel: "Discover" },
+  { path: "/popular", component: GenericMovieList, exact: true, label: "Most Popular" },
+  { path: "/upcoming", component: GenericMovieList, exact: true, label: "Upcoming" },
+  { path: "/top", component: GenericMovieList, exact: true, label: "Top Rated" },
+  { path: "/genres", component: Search, exact: true, label: "Genres" },
+  { path: "/discover", component: Search, exact: true, label: "Discover" },
 
   { path: "/details", component: MovieDetails }
 ];
@@ -20,7 +20,7 @@ const routes = [
 const home = routes[0];
 
 class App extends Component {
-  onlyLinks = link => link.linkLabel;
+  onlyLinks = link => link.label;
 
   render() {
     return (

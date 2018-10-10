@@ -12,7 +12,7 @@ class GenericMovieList extends Component {
     let { path } = this.props.match;
     path = path.substring(1);
 
-    this.props.load({ path: mapper[path] });
+    this.props.load(null, { path: mapper[path] });
   };
 
   render() {

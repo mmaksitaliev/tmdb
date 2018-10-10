@@ -5,11 +5,11 @@ export default ({ links }) => {
   return (
     <div className="navbar">
       <ul className="navbar__list">
-        {links.map(({ path, linkLabel }) => (
+        {links.map(({ path, label }) => (
           <li key={path} className="navbar__list-item">
             <NavLink
               to={path}
-              children={linkLabel}
+              children={label}
               className="navbar__link"
               activeClassName="active"
             />
