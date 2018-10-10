@@ -5,7 +5,7 @@ import Header from "../Header";
 import Navbar from "../Navbar";
 import Search from "../pages/Search";
 import GenericMovieList from "../pages/GenericMovieList";
-import MovieDetails from "../pages/MovieDetails";
+import { MovieDetailsWithLoading } from "../pages/MovieDetails";
 
 const routes = [
   { path: "/popular", component: GenericMovieList, exact: true, label: "Most Popular" },
@@ -14,7 +14,7 @@ const routes = [
   { path: "/genres", component: Search, exact: true, label: "Genres" },
   { path: "/discover", component: Search, exact: true, label: "Discover" },
 
-  { path: "/details", component: MovieDetails }
+  { path: "/details", component: MovieDetailsWithLoading }
 ];
 
 const home = routes[0];

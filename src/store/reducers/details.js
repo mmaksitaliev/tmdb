@@ -16,7 +16,7 @@ const onResponse = (state = INITIAL_STATE, { payload }) => {
   return {
     ...state,
     details: payload,
-    loading: true,
+    loading: INITIAL_STATE.loading,
     error: INITIAL_STATE.error
   };
 };

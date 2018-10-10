@@ -1,34 +1,27 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import getHocWithLoader from "../../HOCs/withLoader";
 import { movie } from "../../../store/actions";
 
-class MovieDetails extends Component {
-  componentDidMount = () => {
-    const { pathname } = this.props.location;
-    const id = pathname.substring(pathname.lastIndexOf("/") + 1);
-    if (Number(id)) {
-      this.props.load(null, { id });
-    }
-  };
-
+export default class MovieDetails extends Component {
   render() {
     return (
       <div>
-        Movie Details <p>{JSON.stringify(this.props.movie)}</p>
+        <h3>
+          Movie Details: <p>{JSON.stringify(this.props.movie)}</p>
+        </h3>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  movie: state.details.details
-});
+const withLoader = getHocWithLoader(
+  ({ details }) => ({
+    loading: details.loading,
+    movie: details.details
+  }),
+  {
+    loader: movie.creators.loadDetails
+  }
+);
 
-const mapDispatchToProps = {
-  load: movie.creators.loadDetails
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MovieDetails);
+export const MovieDetailsWithLoading = withLoader(MovieDetails);
