@@ -15,13 +15,15 @@ $bp-small: 600px;
 
   --midnight-express: #182130;
   --black-russian: #151a27;
+
+  --c-link-hover: #4e30d6c9;
   --c-link-active: #4e30d6;
 
   // heights
   --h-header: 64px;
 
   // widths
-  --w-movie: 18rem;
+  --w-movie: 16rem;
   // --w-max-movie: 18rem;
 
   // font-sizes
@@ -59,8 +61,3 @@ body {
   font-family: "Roboto", serif;
 }
 
-.app {
-  // min-height: 100vh;
-  height: 100vh;
-  background: var(--midnight-express);
-}

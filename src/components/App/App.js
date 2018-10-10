@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
 import Header from "../Header";
-import Sidebar from "../Sidebar";
-import Content from "../Content";
-import Collection from "../pages/Collection";
+import Navbar from "../Navbar";
 import Search from "../pages/Search";
 import GenericMovieList from "../pages/GenericMovieList/GenericMovieList";
 
@@ -12,9 +10,8 @@ const routes = [
   { path: "/popular", component: GenericMovieList, exact: true, linkLabel: "Most Popular" },
   { path: "/upcoming", component: GenericMovieList, exact: true, linkLabel: "Upcoming" },
   { path: "/top", component: GenericMovieList, exact: true, linkLabel: "Top Rated" },
-  { path: "/genres", component: Content, exact: true, linkLabel: "Genres" },
-  // { path: "/collection", component: Collection, exact: true, linkLabel: "My Collection" },
-  { path: "/search", component: Search, exact: true, linkLabel: "Search" }
+  { path: "/genres", component: Search, exact: true, linkLabel: "Genres" },
+  { path: "/discover", component: Search, exact: true, linkLabel: "Discover" }
 ];
 const home = routes[0];
 
@@ -23,8 +20,8 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
-          <Header />
-          <Sidebar links={routes} />
+          <Header links={routes} />
+          <Navbar links={routes} />
           <div className="content">
             <Switch>
               {routes.map(({ path, component, exact }) => (

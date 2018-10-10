@@ -1,7 +1,10 @@
 .header {
+  background-color: var(--black-russian);
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+  font-size: var(--fs-header);
+  padding: 10px;
+
   &__search {
-    flex: 1;
-    display: flex;
     margin: 0 2rem;
   }
 
@@ -9,7 +12,6 @@
     background-color: transparent;
     border: none;
     outline: none;
-    flex: 1;
     margin: 0 2rem;
 
     color: white;
@@ -17,7 +19,7 @@
     font-size: inherit;
     font-weight: 300;
 
-    transform: scale(0.99);
+    transform: scaleX(0.95);
     transition: transform 0.2s;
 
     &:focus {
@@ -27,6 +29,10 @@
 
   &__icon {
     font-size: 4rem;
+  }
+
+  &__icon:hover + &__input {
+    // TODO: simple animation
   }
 }
 
@@ -77,6 +83,35 @@
     color: inherit;
 
     &:hover {
+    }
+
+    &.active {
+      background-color: var(--c-link-active);
+    }
+  }
+}
+
+.navbar {
+  font-size: var(--fs-primary);
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--c-link-hover);
     }
 
     &.active {

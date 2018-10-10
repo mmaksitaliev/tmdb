@@ -1,5 +1,5 @@
 import React from "react";
 
 export default props => {
-  return <div>User Avatar</div>;
+  return <div className="user-menu">User Avatar</div>;
 };
