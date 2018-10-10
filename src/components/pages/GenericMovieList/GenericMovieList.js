@@ -3,9 +3,14 @@ import Movie from "../../Movie";
 import { connect } from "react-redux";
 import { movie } from "../../../store/actions";
 
-class Trending extends Component {
+const mapper = { trending: "popular", upcoming: "upcoming", top: "top_rated" };
+
+class GenericMovieList extends Component {
   componentDidMount = () => {
-    this.props.loadTrending();
+    let { path } = this.props.match;
+    path = path.substring(1);
+
+    this.props.load({path: mapper[path]});
   };
 
   render() {
@@ -13,7 +18,7 @@ class Trending extends Component {
     return (
       <>
         {movies.map(movie => (
-          <Movie key={movie.id} {...movie}/>
+          <Movie key={movie.id} {...movie} />
         ))}
       </>
     );
@@ -25,10 +30,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  loadTrending: movie.creators.trending
+  load: movie.creators.loadMovies
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Trending);
+)(GenericMovieList);

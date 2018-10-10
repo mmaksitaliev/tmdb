@@ -3,6 +3,7 @@ import req from "./requester";
 const BASE = "https://api.themoviedb.org/3";
 // const IMAGE_URL = "https://image.tmdb.org/t/p";
 
+// YOU CAN STEAL IT ;)
 const KEY = "b7400f90748b0c2c6499db6b6752c9bd";
 
 export default (method, url, params) => {

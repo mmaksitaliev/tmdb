@@ -5,17 +5,18 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Content from "../Content";
 import Collection from "../pages/Collection";
-import Trending from "../pages/Trending";
 import Search from "../pages/Search";
+import GenericMovieList from "../pages/GenericMovieList/GenericMovieList";
 
 const routes = [
-  { path: "/trending", component: Trending, exact: true, linkLabel: "Trending Movies" },
-  { path: "/upcoming", component: Content, exact: true, linkLabel: "Upcoming" },
-  { path: "/top", component: Content, exact: true, linkLabel: "Top Rated" },
+  { path: "/trending", component: GenericMovieList, exact: true, linkLabel: "Trending Movies" },
+  { path: "/upcoming", component: GenericMovieList, exact: true, linkLabel: "Upcoming" },
+  { path: "/top", component: GenericMovieList, exact: true, linkLabel: "Top Rated" },
   { path: "/genres", component: Content, exact: true, linkLabel: "Genres" },
   { path: "/collection", component: Collection, exact: true, linkLabel: "My Collection" },
   { path: "/search", component: Search, exact: true, linkLabel: "Search" }
 ];
+const home = routes[0];
 
 class App extends Component {
   render() {
@@ -30,7 +31,7 @@ class App extends Component {
                 <Route key={path} exact={exact} path={path} component={component} />
               ))}
 
-              <Redirect from="*" to="/trending" />
+              <Redirect from="*" to={home.path} />
             </Switch>
           </div>
         </div>

@@ -32,8 +32,8 @@ const onResponse = (state = INITIAL_STATE, { payload, error }) => {
 };
 
 const HANDLERS = {
-  [movie.types.TRENDING.REQUEST]: onRequest,
-  [movie.types.TRENDING.RESPONSE]: onResponse
+  [movie.types.LOAD_MOVIES.REQUEST]: onRequest,
+  [movie.types.LOAD_MOVIES.RESPONSE]: onResponse
 };
 
 export default createReducers(INITIAL_STATE, HANDLERS);
