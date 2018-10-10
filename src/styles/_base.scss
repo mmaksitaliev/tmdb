@@ -22,8 +22,12 @@ $bp-small: 600px;
   // heights
   --h-header: 64px;
 
+  @media (max-width: $bp-small) {
+    --h-header: 48px;
+  }
+
   // widths
-  --w-movie: 16rem;
+  --w-movie: 14rem;
   // --w-max-movie: 18rem;
 
   // font-sizes

@@ -19,7 +19,7 @@
     font-size: inherit;
     font-weight: 300;
 
-    transform: scaleX(0.95);
+    transform: scale(0.95);
     transition: transform 0.2s;
 
     &:focus {
@@ -126,8 +126,13 @@
 
 .movie {
   font-weight: 400;
-  text-align: center;
   width: var(--w-movie);
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.07);
+  }
 
   &__details {
     margin: 1.5rem 0;
@@ -145,8 +150,6 @@
   }
 
   &__image {
-    // max-width: var(--w-movie);
     width: var(--w-movie);
-    // height: 100%;
   }
 }
