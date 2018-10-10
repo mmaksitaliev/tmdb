@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import Movie from "../../Movie";
 import { connect } from "react-redux";
 import { movie } from "../../../store/actions";
@@ -10,7 +12,7 @@ class GenericMovieList extends Component {
     let { path } = this.props.match;
     path = path.substring(1);
 
-    this.props.load({path: mapper[path]});
+    this.props.load({ path: mapper[path] });
   };
 
   render() {
@@ -18,7 +20,9 @@ class GenericMovieList extends Component {
     return (
       <>
         {movies.map(movie => (
-          <Movie key={movie.id} {...movie} />
+          <Link key={movie.id} to={`/details/${movie.id}`}>
+            <Movie {...movie} />
+          </Link>
         ))}
       </>
     );

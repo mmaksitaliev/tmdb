@@ -43,6 +43,10 @@ $bp-small: 600px;
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   // applied by default
   font-size: 62.5%;
