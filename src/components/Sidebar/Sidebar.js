@@ -5,9 +5,14 @@ export default ({ links }) => {
   return (
     <div className="sidebar">
       <ul className="sidebar__list">
-        {links.map(link => (
-          <li key={link.to} className="sidebar__list-item">
-            <NavLink {...link} className="sidebar__link" activeClassName="active" />
+        {links.map(({ path, linkLabel }) => (
+          <li key={path} className="sidebar__list-item">
+            <NavLink
+              to={path}
+              children={linkLabel}
+              className="sidebar__link"
+              activeClassName="active"
+            />
           </li>
         ))}
       </ul>
