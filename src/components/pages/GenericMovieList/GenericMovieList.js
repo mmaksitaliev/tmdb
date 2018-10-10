@@ -3,7 +3,7 @@ import Movie from "../../Movie";
 import { connect } from "react-redux";
 import { movie } from "../../../store/actions";
 
-const mapper = { trending: "popular", upcoming: "upcoming", top: "top_rated" };
+const mapper = { popular: "popular", upcoming: "upcoming", top: "top_rated" };
 
 class GenericMovieList extends Component {
   componentDidMount = () => {

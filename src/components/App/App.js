@@ -9,11 +9,11 @@ import Search from "../pages/Search";
 import GenericMovieList from "../pages/GenericMovieList/GenericMovieList";
 
 const routes = [
-  { path: "/trending", component: GenericMovieList, exact: true, linkLabel: "Trending Movies" },
+  { path: "/popular", component: GenericMovieList, exact: true, linkLabel: "Most Popular" },
   { path: "/upcoming", component: GenericMovieList, exact: true, linkLabel: "Upcoming" },
   { path: "/top", component: GenericMovieList, exact: true, linkLabel: "Top Rated" },
   { path: "/genres", component: Content, exact: true, linkLabel: "Genres" },
-  { path: "/collection", component: Collection, exact: true, linkLabel: "My Collection" },
+  // { path: "/collection", component: Collection, exact: true, linkLabel: "My Collection" },
   { path: "/search", component: Search, exact: true, linkLabel: "Search" }
 ];
 const home = routes[0];

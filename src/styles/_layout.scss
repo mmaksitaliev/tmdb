@@ -1,8 +1,8 @@
 .app {
   display: grid;
-  grid-template-rows: var(--h-header) min-content;
+  grid-template-rows: var(--h-header) calc(100vh - 88px);
   grid-template-columns:
-    [sidebar-start] minmax(min-content, 30rem) [sidebar-end content-start]
+    [sidebar-start] minmax(min-content, 22rem) [sidebar-end content-start]
     minmax(60rem, 1fr) [content-end];
   grid-gap: 2rem;
 }
@@ -26,6 +26,8 @@
   justify-items: center;
   grid-gap: 3rem;
   margin-right: 2rem;
+
+  overflow-y: auto;
 
   @media (max-width: $bp-medium) {
     grid-column: sidebar-start / content-end;
