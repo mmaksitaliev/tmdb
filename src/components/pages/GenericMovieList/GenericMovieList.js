@@ -2,19 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import Movie from "../../Movie";
-import { connect } from "react-redux";
 import { movie } from "../../../store/actions";
+import connectWithLoaderHoc from "../../HOCs/withLoader";
 
 const mapper = { popular: "popular", upcoming: "upcoming", top: "top_rated" };
 
-class GenericMovieList extends Component {
-  componentDidMount = () => {
-    let { path } = this.props.match;
-    path = path.substring(1);
-
-    this.props.load(null, { path: mapper[path] });
-  };
-
+export default class GenericMovieList extends Component {
   render() {
     const { movies } = this.props;
     return (
@@ -30,14 +23,19 @@ class GenericMovieList extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.movie.movies
+  movies: state.movie.movies,
+  loading: state.movie.loading
 });
 
 const mapDispatchToProps = {
-  load: movie.creators.loadMovies
+  loader: props => {
+    let { path } = props.match;
+    path = path.substring(1);
+
+    return movie.creators.loadMovies(null, { path: mapper[path] });
+  }
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(GenericMovieList);
+export const ConnectedGenericMovieList = connectWithLoaderHoc(mapStateToProps, mapDispatchToProps)(
+  GenericMovieList
+);

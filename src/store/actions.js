@@ -1,5 +1,4 @@
 import { createActions } from "redux-arc";
-import { moviesByPage } from "./middlewares";
 
 export const movie = createActions("movie", {
   search: { url: "search/movie", method: "GET" },

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import connectedHocWithLoader, { withLoader } from "../../HOCs/withLoader";
+import connectWithLoaderHoc from "../../HOCs/withLoader";
 import { movie } from "../../../store/actions";
 
 export default class MovieDetails extends Component {
@@ -14,7 +14,7 @@ export default class MovieDetails extends Component {
   }
 }
 
-const enhancedWithLoader = connectedHocWithLoader(
+const enhancedWithLoader = connectWithLoaderHoc(
   ({ details }) => ({
     loading: details.loading,
     movie: details.details

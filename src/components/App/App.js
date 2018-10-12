@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import Header from "../Header";
 import Navbar from "../Navbar";
 import Search from "../pages/Search";
-import GenericMovieList from "../pages/GenericMovieList";
+import { ConnectedGenericMovieList } from "../pages/GenericMovieList";
 import { ConnectedMovieDetails } from "../pages/MovieDetails";
 
 const routes = [
-  { path: "/popular", component: GenericMovieList, exact: true, label: "Most Popular" },
-  { path: "/upcoming", component: GenericMovieList, exact: true, label: "Upcoming" },
-  { path: "/top", component: GenericMovieList, exact: true, label: "Top Rated" },
+  { path: "/popular", component: ConnectedGenericMovieList, exact: true, label: "Most Popular" },
+  { path: "/upcoming", component: ConnectedGenericMovieList, exact: true, label: "Upcoming" },
+  { path: "/top", component: ConnectedGenericMovieList, exact: true, label: "Top Rated" },
   { path: "/genres", component: Search, exact: true, label: "Genres" },
   { path: "/discover", component: Search, exact: true, label: "Discover" },
 

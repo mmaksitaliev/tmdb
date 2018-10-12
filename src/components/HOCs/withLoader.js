@@ -1,7 +1,6 @@
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
 export const withLoader = Component => {
   class WithLoader extends React.Component {
@@ -23,15 +22,14 @@ export const withLoader = Component => {
   return WithLoader;
 };
 
-const connectedHocWithLoader = (mapStateToProps, mapDispatchToProps) => {
+const connectWithLoaderHoc = (mapStateToProps, mapDispatchToProps) => {
   return compose(
     connect(
       mapStateToProps,
       mapDispatchToProps
     ),
-    withRouter,
     withLoader
   );
 };
 
-export default connectedHocWithLoader;
+export default connectWithLoaderHoc;
