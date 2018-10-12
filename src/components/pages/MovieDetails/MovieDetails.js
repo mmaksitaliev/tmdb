@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import getHocWithLoader from "../../HOCs/withLoader";
+import connectedHocWithLoader, { withLoader } from "../../HOCs/withLoader";
 import { movie } from "../../../store/actions";
 
 export default class MovieDetails extends Component {
@@ -14,14 +14,19 @@ export default class MovieDetails extends Component {
   }
 }
 
-const withLoader = getHocWithLoader(
+const enhancedWithLoader = connectedHocWithLoader(
   ({ details }) => ({
     loading: details.loading,
     movie: details.details
   }),
   {
-    loader: movie.creators.loadDetails
+    loader: props => {
+      const { pathname } = props.location;
+      const id = pathname.substring(pathname.lastIndexOf("/") + 1);
+
+      return movie.creators.loadDetails(null, { id });
+    }
   }
 );
 
-export const MovieDetailsWithLoading = withLoader(MovieDetails);
+export const ConnectedMovieDetails = enhancedWithLoader(MovieDetails);
