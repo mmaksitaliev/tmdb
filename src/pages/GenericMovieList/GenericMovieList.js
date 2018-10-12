@@ -7,20 +7,13 @@ import connectWithLoaderHoc from "../../HOCs/withLoader";
 
 const mapper = { popular: "popular", upcoming: "upcoming", top: "top_rated" };
 
-export default class GenericMovieList extends Component {
-  render() {
-    const { movies } = this.props;
-    return (
-      <>
-        {movies.map(movie => (
-          <Link key={movie.id} to={`/details/${movie.id}`}>
-            <Movie {...movie} />
-          </Link>
-        ))}
-      </>
-    );
-  }
-}
+const GenericMovieList = ({ movies }) => {
+  return movies.map(movie => (
+    <Link key={movie.id} to={`/details/${movie.id}`}>
+      <Movie {...movie} />
+    </Link>
+  ));
+};
 
 const mapStateToProps = state => ({
   movies: state.movie.movies,
@@ -35,6 +28,8 @@ const mapDispatchToProps = {
     return movie.creators.loadMovies(null, { path: mapper[path] });
   }
 };
+
+export default GenericMovieList;
 
 export const ConnectedGenericMovieList = connectWithLoaderHoc(mapStateToProps, mapDispatchToProps)(
   GenericMovieList

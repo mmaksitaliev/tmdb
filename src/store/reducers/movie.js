@@ -12,6 +12,7 @@ const INITIAL_STATE = {
 const onRequest = (state = INITIAL_STATE, action) => {
   return {
     ...state,
+    movies: INITIAL_STATE.movies,
     loading: true
   };
 };
