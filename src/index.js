@@ -5,7 +5,7 @@ import store from "./store";
 
 import "./styles/index.scss";
 import "font-awesome/css/font-awesome.min.css";
-import App from "./components/App";
+import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

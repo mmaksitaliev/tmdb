@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import connectWithLoaderHoc from "../../HOCs/withLoader";
-import { movie } from "../../../store/actions";
+import connectWithLoaderHoc from "../../components/HOCs/withLoader";
+import { loadDetails } from "../../store/actions";
 
 export default class MovieDetails extends Component {
   render() {
@@ -24,7 +24,7 @@ const enhancedWithLoader = connectWithLoaderHoc(
       const { pathname } = props.location;
       const id = pathname.substring(pathname.lastIndexOf("/") + 1);
 
-      return movie.creators.loadDetails(null, { id });
+      return loadDetails(id);
     }
   }
 );

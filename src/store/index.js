@@ -1,8 +1,7 @@
 import { applyMiddleware, createStore, compose } from "redux";
-import { createAsyncMiddleware } from "redux-arc";
+import reduxThunk from "redux-thunk";
 
 import reducers from "./reducers";
-import { asyncTask } from "./middlewares";
 
 let composeEnhancers = compose;
 
@@ -12,9 +11,6 @@ if (window.__DEV__ || process.env.NODE_ENV === "development") {
   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 }
 
-// create the async middleware
-const asyncMiddleware = createAsyncMiddleware(asyncTask);
-
-const store = createStore(reducers, composeEnhancers(applyMiddleware(asyncMiddleware)));
+const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxThunk)));
 
 export default store;

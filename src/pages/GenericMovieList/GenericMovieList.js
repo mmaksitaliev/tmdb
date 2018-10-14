@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import Movie from "../../Movie";
-import { movie } from "../../../store/actions";
-import connectWithLoaderHoc from "../../HOCs/withLoader";
+import Movie from "../../components/Movie";
+import { loadMovies } from "../../store/actions";
+import connectWithLoaderHoc from "../../components/HOCs/withLoader";
 
 const mapper = { popular: "popular", upcoming: "upcoming", top: "top_rated" };
 
@@ -25,7 +25,7 @@ const mapDispatchToProps = {
     let { path } = props.match;
     path = path.substring(1);
 
-    return movie.creators.loadMovies(null, { path: mapper[path] });
+    return loadMovies(mapper[path]);
   }
 };
 

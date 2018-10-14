@@ -1,7 +1,7 @@
 /* TRENDING, UPCOMING, TOP RATED MOVIES REDUCER */
 
-import { createReducers } from "redux-arc";
-import { movie } from "../actions";
+import { createReducer } from "./index";
+import { LOAD_MOVIES_REQUEST, LOAD_MOVIES_RESPONSE } from "../actions";
 
 const INITIAL_STATE = {
   movies: [],
@@ -17,14 +17,14 @@ const onRequest = (state = INITIAL_STATE, action) => {
   };
 };
 
-const onResponse = (state = INITIAL_STATE, { payload, error }) => {
-  let movies = payload.results.map(m => ({
+const onResponse = (state = INITIAL_STATE, { movies, error }) => {
+  movies = movies.map(m => ({
     id: m.id,
     title: m.title,
     image: m.poster_path,
     year: m.release_date
   }));
-  if (payload.page > 1) movies = state.movies.concat(movies);
+  if (movies.page > 1) movies = state.movies.concat(movies);
   return {
     movies,
     loading: INITIAL_STATE.loading,
@@ -33,8 +33,8 @@ const onResponse = (state = INITIAL_STATE, { payload, error }) => {
 };
 
 const HANDLERS = {
-  [movie.types.LOAD_MOVIES.REQUEST]: onRequest,
-  [movie.types.LOAD_MOVIES.RESPONSE]: onResponse
+  [LOAD_MOVIES_REQUEST]: onRequest,
+  [LOAD_MOVIES_RESPONSE]: onResponse
 };
 
-export default createReducers(INITIAL_STATE, HANDLERS);
+export default createReducer(INITIAL_STATE, HANDLERS);

@@ -1,5 +1,5 @@
-import { createReducers } from "redux-arc";
-import { movie } from "../actions";
+import { createReducer } from "./index";
+import { LOAD_DETAILS_REQUEST, LOAD_DETAILS_RESPONSE } from "../actions";
 
 const INITIAL_STATE = { details: null, loading: false, error: null };
 
@@ -12,18 +12,18 @@ const onRequest = (state = INITIAL_STATE, action) => {
   };
 };
 
-const onResponse = (state = INITIAL_STATE, { payload }) => {
+const onResponse = (state = INITIAL_STATE, { details }) => {
   return {
     ...state,
-    details: payload,
+    details,
     loading: INITIAL_STATE.loading,
     error: INITIAL_STATE.error
   };
 };
 
 const HANDLERS = {
-  [movie.types.LOAD_DETAILS.REQUEST]: onRequest,
-  [movie.types.LOAD_DETAILS.RESPONSE]: onResponse
+  [LOAD_DETAILS_REQUEST]: onRequest,
+  [LOAD_DETAILS_RESPONSE]: onResponse
 };
 
-export default createReducers(INITIAL_STATE, HANDLERS);
+export default createReducer(INITIAL_STATE, HANDLERS);
