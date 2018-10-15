@@ -3,7 +3,7 @@ import { LOAD_DETAILS_REQUEST, LOAD_DETAILS_RESPONSE } from "../actions";
 
 const INITIAL_STATE = { details: null, loading: false, error: null };
 
-const onRequest = (state = INITIAL_STATE, action) => {
+const onRequest = (state, action) => {
   return {
     ...state,
     loading: true,
@@ -12,7 +12,7 @@ const onRequest = (state = INITIAL_STATE, action) => {
   };
 };
 
-const onResponse = (state = INITIAL_STATE, { details }) => {
+const onResponse = (state, { details }) => {
   return {
     ...state,
     details,

@@ -1,20 +1,20 @@
-import { createReducers } from "redux-arc";
-import { movie } from "../actions";
+import { createReducer } from "./index";
+import { SEARCH_MOVIES_REQUEST, SEARCH_MOVIES_RESPONSE } from "../actions";
 
 const INITIAL_STATE = {
   movies: [],
   isLoading: false
 };
 
-const onSearchRequest = (state = INITIAL_STATE, action) => {
+const onSearchRequest = (state, action) => {
   return {
     ...state,
     isLoading: true
   };
 };
 
-const onSearchResponse = (state = INITIAL_STATE, { payload }) => {
-  let movies = state.movies.concat(payload.results);
+const onSearchResponse = (state, { movies }) => {
+  movies = state.movies.concat(movies);
   return {
     ...state,
     movies,
@@ -22,10 +22,9 @@ const onSearchResponse = (state = INITIAL_STATE, { payload }) => {
   };
 };
 
-
 const HANDLERS = {
-  [movie.types.SEARCH.REQUEST]: onSearchRequest,
-  [movie.types.SEARCH.RESPONSE]: onSearchResponse
+  [SEARCH_MOVIES_REQUEST]: onSearchRequest,
+  [SEARCH_MOVIES_RESPONSE]: onSearchResponse
 };
 
-export default createReducers(INITIAL_STATE, HANDLERS);
+export default createReducer(INITIAL_STATE, HANDLERS);

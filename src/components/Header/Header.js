@@ -3,7 +3,7 @@ import Search from "./Search";
 import UserMenu from "./User";
 
 import { connect } from "react-redux";
-import { movie } from "../../store/actions";
+import { searchMovies } from "../../store/actions";
 
 const Header = props => {
   return (
@@ -15,7 +15,7 @@ const Header = props => {
 };
 
 const mapDispatchToProps = {
-  onSearchClick: e => movie.creators.search({ query: e.target.value || "Fight club" })
+  onSearchClick: e => searchMovies({ query: e.target.value || "Fight club" })
 };
 
 export default connect(

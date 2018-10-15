@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   error: null
 };
 
-const onRequest = (state = INITIAL_STATE, action) => {
+const onRequest = (state, action) => {
   return {
     ...state,
     movies: INITIAL_STATE.movies,
@@ -17,7 +17,7 @@ const onRequest = (state = INITIAL_STATE, action) => {
   };
 };
 
-const onResponse = (state = INITIAL_STATE, { movies, error }) => {
+const onResponse = (state, { movies, error }) => {
   movies = movies.map(m => ({
     id: m.id,
     title: m.title,
