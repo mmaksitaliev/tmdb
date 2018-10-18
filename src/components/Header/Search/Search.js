@@ -1,5 +1,5 @@
 import React from "react";
-import IconButton from "../../IconButton";
+import IconButton from "components/IconButton";
 
 export default props => {
   return (

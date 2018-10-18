@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import connectWithLoaderHoc from "../../components/HOCs/withLoader";
-import { loadDetails } from "../../store/actions";
+import connectWithLoaderHoc from "components/HOCs/withLoader";
+import { loadDetails } from "store/actions";
 
 export default class MovieDetails extends Component {
   render() {

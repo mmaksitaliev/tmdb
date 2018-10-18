@@ -3,7 +3,7 @@ import Search from "./Search";
 import UserMenu from "./User";
 
 import { connect } from "react-redux";
-import { searchMovies } from "../../store/actions";
+import { searchMovies } from "store/actions";
 
 const Header = props => {
   return (

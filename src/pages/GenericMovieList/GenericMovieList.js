@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Movie from "../../components/Movie";
-import { loadMovies } from "../../store/actions";
-import connectWithLoaderHoc from "../../components/HOCs/withLoader";
+import Movie from "components/Movie";
+import { loadMovies } from "store/actions";
+import connectWithLoaderHoc from "components/HOCs/withLoader";
 
 const mapper = { popular: "popular", upcoming: "upcoming", top: "top_rated" };
 
