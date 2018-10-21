@@ -24,10 +24,9 @@ describe("<Navbar/>", () => {
     const wrapper = shallow(<Navbar links={links} />);
     const navs = wrapper.find(NavLink);
 
-    expect(navs.get(0).props.to).toBe(links[0].path);
-    expect(navs.get(1).props.to).toBe(links[1].path);
-
-    expect(navs.get(0).props.children).toBe(links[0].label);
-    expect(navs.get(1).props.children).toBe(links[1].label);
+    navs.forEach((nav, i) => {
+      expect(nav.prop("to")).toBe(links[i].path);
+      expect(nav.prop("children")).toBe(links[i].label);
+    });
   });
 });
